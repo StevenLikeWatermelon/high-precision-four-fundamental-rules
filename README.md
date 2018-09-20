@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/StevenLikeWatermelon/high-precision-four-fundamental-rules.svg?branch=master)](https://travis-ci.org/StevenLikeWatermelon/high-precision-four-fundamental-rules)   [![Code Climate](https://codeclimate.com/github/StevenLikeWatermelon/high-precision-four-fundamental-rules/badges/gpa.svg)](https://codeclimate.com/github/StevenLikeWatermelon/high-precision-four-fundamental-rules)   [![npm version](https://badge.fury.io/js/high-precision-four-fundamental-rules.svg)](https://badge.fury.io/js/high-precision-four-fundamental-rules)   [![Downloads](http://img.shields.io/npm/dm/high-precision-four-fundamental-rules.svg)](https://www.npmjs.com/package/high-precision-four-fundamental-rules)
 
 a npm packge of high-precision-four-fundamental-rules, which can make up for the defect of accuracy of native JS.
-
+（高精度的基本四则运算npm包，用来弥补原生JS计算精度缺失的缺陷）
 ## Install
 ``
 $ npm install high-precision-four-fundamental-rules --save
@@ -15,7 +15,7 @@ precisionArithmetic.add(1, 2, 4); // '3.0000'
 ```
 
 ## API
-### add
+### add（加法）
 ```js
 precisionArithmetic.add(num1, num2, fixedLength); 
 ```
@@ -28,7 +28,7 @@ Type: `number or string`
 Require: `false`
 Type: `number`
 
-### subtract
+### subtract（减法）
 ```js
 precisionArithmetic.subtract(num1, num2, fixedLength); 
 ```
@@ -41,7 +41,7 @@ Type: `number or string`
 Require: `false`
 Type: `number`
 
-### multiply
+### multiply（乘法）
 ```js
 precisionArithmetic.multiply(num1, num2, fixedLength); 
 ```
@@ -54,7 +54,7 @@ Type: `number or string`
 Require: `false`
 Type: `number`
 
-### divide
+### divide（除法）
 ```js
 precisionArithmetic.divide(num1, num2, fixedLength); 
 ```
@@ -70,3 +70,5 @@ Type: `number`
 ## Warning
 
 **In consideration of `toFixed` function in JavaScript not applicable to most scenes, I rewrite it by rounding way. You can see the source code in `index.js`. If you do not want to use it, this npm package is not suitable for you**
+
+**（考虑到原生JS中`toFixed`方法采用四舍六入五成双的方法，该方法并不适用于大部分场景，作者用四舍五入算法重写了改方法，你可以在`index.js`看到源码。如果你并不想采用四舍五入的算法，那么这个npm包并不适合于你）**
