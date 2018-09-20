@@ -69,4 +69,4 @@ Type: `number`
 
 ## Warning
 
-### a npm packge of high-precision-four-fundamental-rules, which can make up for the defect of accuracy of native JS.
+**In consideration of `toFixed` function in JavaScript not applicable to most scenes, I rewrite it by rounding way. You can see the source code in `index.js`. If you do not want to use it, this npm package is not suitable for you**
