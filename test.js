@@ -2,7 +2,7 @@
 
 var test = require('tape')
 var arithmetic = require('./')
-
+console.log(arithmetic)
 test(function (t) {
   t.equal(arithmetic.add('2', 1), 3)
   t.equal(arithmetic.add(4, 1), 5)
