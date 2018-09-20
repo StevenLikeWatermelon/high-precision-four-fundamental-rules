@@ -155,42 +155,34 @@ function execute(x, y, op, acc) {
  * 默认toFixed方法为四舍六入五成双算法
  * 重写toFixed方法调整为四舍五入算法
  */
-Number.prototype.toFixed = function (d) {
-    var s = this + "";
-    if (!d) d = 0;
-    if (typeof d == 'string') {
-        d = Number(d);
-    };
-    if (s.indexOf(".") == -1) {
-        s += ".";
-    };
-    s = scienceNum(s); //处理e+、e-情况
-    s += new Array(d + 1).join("0");
-    if (new RegExp("^(-|\\+)?(\\d+(\\.\\d{0," + (d + 1) + "})?)\\d*$").test(s)) {
-        var _s = "0" + RegExp.$2,
-            pm = RegExp.$1,
-            a = RegExp.$3.length,
-            b = true;
-        if (a == d + 2) {
-            a = _s.match(/\d/g);
-            if (parseInt(a[a.length - 1]) > 4) {
-                for (var i = a.length - 2; i >= 0; i--) {
-                    a[i] = parseInt(a[i]) + 1;
-                    if (a[i] == 10) {
-                        a[i] = 0;
-                        b = i != 1;
-                    } else break;
-                }
-            }
-            _s = a.join("").replace(new RegExp("(\\d+)(\\d{" + d + "})\\d$"), "$1.$2");
-        }
-        if (b) {
-            _s = _s.substr(1);
-        };
-        return (pm + _s).replace(/\.$/, "");
+Number.prototype.toFixed = function(length) {
+    let carry = 0; //存放进位标志
+    let num, multiple; //num为原浮点数放大multiple倍后的数，multiple为10的length次方
+    let str = this + ''; //将调用该方法的数字转为字符串
+    let dot = str.indexOf("."); //找到小数点的位置
+    if (str.substr(dot + length + 1, 1) >= 5) carry = 1; //找到要进行舍入的数的位置，手动判断是否大于等于5，满足条件进位标志置为1
+    multiple = Math.pow(10, length); //设置浮点数要扩大的倍数
+    num = Math.floor(this * multiple) + carry; //去掉舍入位后的所有数，然后加上我们的手动进位数
+    let result = num / multiple + ''; //将进位后的整数再缩小为原浮点数
+    /*
+     * 处理进位后无小数
+     */
+    dot = result.indexOf(".");
+    if (dot < 0) {
+        result += '.';
+        dot = result.indexOf(".");
     }
-    return this + "";
-};
+    /*
+     * 处理多次进位
+     */
+    let len = result.length - (dot + 1);
+    if (len < length) {
+        for (let i = 0; i < length - len; i++) {
+            result += 0;
+        }
+    }
+    return result;
+}
 
 //加法运算
 API.add = function(x, y, acc) {
