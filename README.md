@@ -3,7 +3,6 @@
 
 a npm packge of high-precision-four-fundamental-rules, which can make up for the defect of accuracy of native JS.
 
-
 ## Install
 ``
 $ npm install high-precision-four-fundamental-rules --save
@@ -27,4 +26,47 @@ Type: `number or string`
 
 ##### fixedLength
 Require: `false`
+Type: `number`
+
+### subtract
+```js
+precisionArithmetic.subtract(num1, num2, fixedLength); 
+```
+
+##### num, num2
+Require: `true`
 Type: `number or string`
+
+##### fixedLength
+Require: `false`
+Type: `number`
+
+### multiply
+```js
+precisionArithmetic.multiply(num1, num2, fixedLength); 
+```
+
+##### num, num2
+Require: `true`
+Type: `number or string`
+
+##### fixedLength
+Require: `false`
+Type: `number`
+
+### divide
+```js
+precisionArithmetic.divide(num1, num2, fixedLength); 
+```
+
+##### num, num2
+Require: `true`
+Type: `number or string`
+
+##### fixedLength
+Require: `false`
+Type: `number`
+
+## Warning
+
+### a npm packge of high-precision-four-fundamental-rules, which can make up for the defect of accuracy of native JS.
