@@ -5,7 +5,7 @@ const API = {};
  * 默认toFixed方法为四舍六入五成双算法
  * 重写toFixed方法调整为四舍五入算法
  */
-Number.prototype.toFixed = (length == 0) => {
+Number.prototype.toFixed = (length = 0) => {
     length = +length;
     let carry = 0; //存放进位标志
     let num, multiple; //num为原浮点数放大multiple倍后的数，multiple为10的length次方
