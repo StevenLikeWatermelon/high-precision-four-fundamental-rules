@@ -4,15 +4,18 @@
   "description": "a npm packge of high-precision-four-fundamental-rules, which can make up for the defect of accuracy of native JS.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard && tape test.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/StevenLikeWatermelon/high-precision-four-fundamental-rules.git"
   },
   "keywords": [
-    "JS",
+    "add",
     "arithmetic",
+    "difference",
+    "divide",
+    "math",
     "Math"
   ],
   "author": "stevenLikeWatermelon",
@@ -20,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/StevenLikeWatermelon/high-precision-four-fundamental-rules/issues"
   },
-  "homepage": "https://github.com/StevenLikeWatermelon/high-precision-four-fundamental-rules#readme"
+  "homepage": "https://github.com/StevenLikeWatermelon/high-precision-four-fundamental-rules#readme",
+  "devDependencies": {
+    "standard": "^5.2.2",
+    "tape": "^4.9.1"
+  }
 }
