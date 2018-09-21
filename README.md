@@ -10,8 +10,15 @@ $ npm install high-precision-four-fundamental-rules --save
 
 ## Usage
 ```js
+// type 1
 import precisionArithmetic from 'high-precision-four-fundamental-rules';
 precisionArithmetic.add(1, 2, 4); // '3.0000'
+// type 2
+import {add, subtract, multiply, divide} from 'high-precision-four-fundamental-rules';
+add(1, 2, 4); // '3.0000'
+subtract(1, 2, 3); // '-1.000';
+multiply(1, 2, 2); // '2.00';
+multiply(1, 3, 7); // '0.3333333';
 ```
 
 ## API
