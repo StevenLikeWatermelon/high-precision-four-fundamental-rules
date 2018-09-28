@@ -1,6 +1,6 @@
 {
   "name": "high-precision-four-fundamental-rules",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "a npm packge of high-precision-four-fundamental-rules, which can make up for the defect of accuracy of native JS.",
   "main": "index.js",
   "scripts": {
