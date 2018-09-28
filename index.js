@@ -2,8 +2,8 @@ const API = {};
 
 //生成num个0的字符串
 function _makeZero(num) {
-    let str = '';
-    for (let i = 0; i < num; i++) {
+    var str = '';
+    for (var i = 0; i < num; i++) {
         str += '0';
     }
     return str;
@@ -36,40 +36,40 @@ function scienceNum(value) {
     if (typeof value === 'number') {
         value = value + ""
     };
-    let eIndex = value.indexOf('E');
+    var eIndex = value.indexOf('E');
     if (eIndex == -1) {
         eIndex = value.indexOf('e')
     };
     if (eIndex != -1) {
-        let doubleStr = value.substring(0, eIndex); //e前面的值
-        let eStr = parseInt(value.substring(eIndex + 1, value.length)); //e后面的值
-        let doubleStrArr = doubleStr.split('.');
-        let doubleStr1 = doubleStrArr[0] || "";
-        let doubleStr2 = doubleStrArr[1] || "";
+        var doubleStr = value.substring(0, eIndex); //e前面的值
+        var eStr = parseInt(value.substring(eIndex + 1, value.length)); //e后面的值
+        var doubleStrArr = doubleStr.split('.');
+        var doubleStr1 = doubleStrArr[0] || "";
+        var doubleStr2 = doubleStrArr[1] || "";
 
         if (eStr < 0) { //e- 很小的数
-            let str1Len = doubleStr1.length;
-            let eStrs = Math.abs(eStr);
+            var str1Len = doubleStr1.length;
+            var eStrs = Math.abs(eStr);
             if (str1Len > eStrs) {
-                let nums = doubleStr1.substring(0, eStrs);
-                let nume = doubleStr1.substring(eStrs, str1Len);
+                var nums = doubleStr1.substring(0, eStrs);
+                var nume = doubleStr1.substring(eStrs, str1Len);
                 doubleStr = nums + "." + nume + nume;
             } else if (str1Len < eStrs) {
-                let indexNum = eStrs - str1Len;
-                let str = _makeZero(indexNum); //用0补齐
+                var indexNum = eStrs - str1Len;
+                var str = _makeZero(indexNum); //用0补齐
                 doubleStr = '0.' + str + doubleStr1 + doubleStr2;
             } else {
                 doubleStr = '0.' + doubleStr1 + doubleStr2;
             }
         } else { //e+ 很大的数
-            let str2Len = doubleStr2.length;
+            var str2Len = doubleStr2.length;
             if (str2Len > eStr) {
-                let _nums = doubleStr2.substring(0, eStr);
-                let _nume = doubleStr2.substring(eStr, str2Len);
+                var _nums = doubleStr2.substring(0, eStr);
+                var _nume = doubleStr2.substring(eStr, str2Len);
                 doubleStr = doubleStr1 + _nums + '.' + _nume;
             } else if (str2Len < eStr) {
-                let _indexNum = eStr - str2Len;
-                let _str = _makeZero(_indexNum); //用0补齐
+                var _indexNum = eStr - str2Len;
+                var _str = _makeZero(_indexNum); //用0补齐
                 doubleStr = doubleStr1 + doubleStr2 + _str;
             } else {
                 doubleStr = doubleStr1 + doubleStr2;
@@ -85,7 +85,7 @@ function scienceNum(value) {
  * 将数值升级(10的X的次方)到整数
  */
 function science(num) {
-    let re = {
+    var re = {
         r1: 0, //数字去掉小数点后的值，也就是 r1*r2 的结果
         r2: 1 //小数部分，10的长度次幂
     };
@@ -93,9 +93,9 @@ function science(num) {
         re.r1 = num;
         return re;
     }
-    let snum = scienceNum(num + ""); //处理0.123e-10类似问题
-    let dotPos = snum.indexOf("."); //小数点位置
-    let len = snum.substr(dotPos + 1).length; //小数点长度
+    var snum = scienceNum(num + ""); //处理0.123e-10类似问题
+    var dotPos = snum.indexOf("."); //小数点位置
+    var len = snum.substr(dotPos + 1).length; //小数点长度
     re.r2 = Math.pow(10, len);
     re.r1 = parseInt(snum.replace(".", ""));
     return re;
@@ -112,22 +112,22 @@ function science(num) {
  * @param acc 保留小数位个数，进行四舍五入
  */
 function execute(x, y, op, acc) {
-    let xx = Number(x == undefined ? 0 : x);
-    let yy = Number(y == undefined ? 0 : y);
+    var xx = Number(x == undefined ? 0 : x);
+    var yy = Number(y == undefined ? 0 : y);
 
     //
-    let a = science(xx);
-    let b = science(yy);
+    var a = science(xx);
+    var b = science(yy);
 
-    let na = a.r1;
-    let nb = b.r1;
+    var na = a.r1;
+    var nb = b.r1;
 
-    let ta = a.r2;
-    let tb = b.r2;
-    let maxt = Math.max(ta, tb);
+    var ta = a.r2;
+    var tb = b.r2;
+    var maxt = Math.max(ta, tb);
 
     //精度值处理
-    let result = 0;
+    var result = 0;
     switch (parseInt(op, 10)) {
         case 0: //加
             result = (xx * maxt + yy * maxt) / maxt;
