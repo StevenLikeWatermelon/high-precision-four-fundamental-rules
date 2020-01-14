@@ -80,6 +80,6 @@ Type: `number`
 
 ## Warning
 
-**In consideration of `toFixed` function in JavaScript not applicable to most scenes like invoice amount or banking business, I rewrite it by rounding way. You can see the source code in `index.js`. If you do not want to use it, this npm package is not suitable for you**
+**In consideration of `toFixed` function in JavaScript not applicable to most high precision scenes like invoice amount or banking business, I rewrite it by rounding way. You can see the source code in `index.js`.**
 
-**（考虑到原生JS中`toFixed`方法并不适用于银行或发票业务等场景，作者用四舍五入算法重写了改方法，你可以在`index.js`看到源码。如果你并不想采用四舍五入的算法，那么这个npm包并不适合于你）**
+**（考虑到原生JS中`toFixed`方法并不适用于银行或发票业务等高精度场景，作者用四舍五入算法重写了改方法，你可以在`index.js`看到源码。**
